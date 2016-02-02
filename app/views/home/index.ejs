@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <table >
+            <tr>
+                <td>id</td>
+                <td>idade</td>
+                <td>peso</td>
+                <td>data</td>
+            </tr>
+            <%for(var i=0; i < results.length;i++){%>
+            <tr>
+                <td><%= results[i].id %></td>
+                <td><%= results[i].idade %></td>
+                <td><%= results[i].peso %></td>
+                <td><%= results[i].data %></td>
+            </tr>           
+            <% }%>
+            
+        </table>
+    </body>
+</html>
