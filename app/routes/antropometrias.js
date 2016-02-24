@@ -1,7 +1,10 @@
 module.exports = function(app) {
 
-	app.get('/antropometrias', function(req, res, next) {
-		console.log(new Date(),'Kop! GET:antropometrias');
+	app.get('/antropometrias/:atletaId', function(req, res, next) {
+		
+		//TODO: Diversas mudanças para associar com atletas...
+		//var atletaId = parseInt(req.params.atletaId);
+
 		var connection = app.infra.connectionFactory();
 		var antropometriasDAO = new app.infra.AntropometriasDAO(connection);
 
@@ -12,7 +15,7 @@ module.exports = function(app) {
 			}
 			res.format({
 				json:function(){
-					console.log('results',results);
+					// console.log('results',results);
 					res.json(results);
 				}
 			});

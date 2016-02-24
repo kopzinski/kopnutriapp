@@ -3,7 +3,7 @@ var http  = require('http');
 var configuracoes = {
 	hostname: 'localhost',
 	port: 3000,
-	path: '/produtos',
+	path: '/antropometrias',
 	method: 'post',
 	headers: {
 		'Accept':'application/json'
