@@ -15,7 +15,6 @@ module.exports = function(app) {
 			}
 			res.format({
 				json:function(){
-					// console.log('results',results);
 					res.json(results);
 				}
 			});
@@ -28,35 +27,34 @@ module.exports = function(app) {
 	});
 
 	
-	app.post('/produtos', function(req,res) {
+	app.post('/antropometrias', function(req,res) {
 
-		var produto = req.body;
+		// var produto = req.body;
+		var antropometria = req.body;
 
-		req.assert('titulo','Titulo eh obrigatorio').notEmpty();
-		req.assert('preco','formato invalido').isFloat();
-
-		
+		req.assert('peso','Peso é obrigatório').notEmpty();
+		// req.assert('peso','Tipo do peso ').isFloat();
 
 		var erros  = req.validationErrors();
 		if(erros) {
 			res.format({
-				html:function(){
-					res.status(400).render('produtos/form',{errosValidacao:erros,produto:produto});
-				},
 				json:function(){
 					res.status(400).json(erros);
 				}
 			});			
-			
 			return;
-
 		}
 
 		var connection = app.infra.connectionFactory();
-		var produtosDAO = new app.infra.ProdutosDAO(connection);
+		var antropometriasDAO = new app.infra.AntropometriasDAO(connection);
 
-		produtosDAO.salva(produto, function(erros,resultados){
-			res.redirect('/produtos');
+		antropometriasDAO.salva(antropometria, function(erros,resultados){
+			console.log(erros);
+			res.format({
+				json:function(){
+					res.json(antropometria);
+				}
+			});
 		});
 
 	});
