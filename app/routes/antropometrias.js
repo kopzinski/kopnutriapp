@@ -1,24 +1,22 @@
 module.exports = function(app) {
 
-	app.get('/produtos', function(req, res, next) {
+	app.get('/antropometrias', function(req, res, next) {
+		console.log(new Date(),'Kop! GET:antropometrias');
 		var connection = app.infra.connectionFactory();
-		var produtosDAO = new app.infra.ProdutosDAO(connection);
+		var antropometriasDAO = new app.infra.AntropometriasDAO(connection);
 
-		produtosDAO.lista(function(err, results){
+		antropometriasDAO.lista(function(err, results){
 			if(err) {
+				console.log(err);
 				return next(err);
 			}
-			console.log(err);
 			res.format({
-				html:function(){
-					res.render('produtos/lista',{lista:results});
-				},
 				json:function(){
+					console.log('results',results);
 					res.json(results);
 				}
 			});
 		});
-
 		connection.end();
 	});
 

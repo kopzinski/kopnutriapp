@@ -4,7 +4,7 @@ module.exports = function(app) {
 		var dao = new app.infra.AntropometriasDAO(connection);
 
 		dao.lista(function(err, results){
-			console.log(results);
+			//console.log(results);
 			res.render('home/index',{results:results});
 		});
 		connection.end();

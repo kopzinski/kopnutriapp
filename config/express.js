@@ -5,8 +5,8 @@ var expressValidator = require('express-validator');
 
 module.exports = function () {
 
-	console.log('KopNutriApp!');
-	console.log(process);
+//	console.log('KopNutriApp!');
+//	console.log(process);
 	var app = express();
 	app.use(express.static('./app/public'));
 	app.set('view engine','ejs');
