@@ -1,0 +1,27 @@
+  <form novalidate name="formulario" class="form-group form-registro-peso div-center"  ng-submit="registrarPeso()">
+    <h2 class="form-group-heading">Registre seu peso</h2>
+    <!--<label for="inputEmail" class="sr-only">Email address</label>-->
+    <input ng-model="antropometria.peso"  class="form-control input-lg input-center input-more-lg" placeholder="80.5 kg" required autofocus>
+
+    <input type="range">
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Peso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="ant in antropometrias">
+              <td>{{ant.data}}</td>
+              <td>{{ant.peso}} kg</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>        
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
+  </form>
+

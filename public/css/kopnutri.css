@@ -1,0 +1,23 @@
+.form-registro-peso {
+	width: 260px;
+}
+
+.img-grafico-peso {
+	width: 100%;
+}
+
+.div-center {
+	margin: auto;
+}
+
+.input-center {
+	text-align: center;
+}
+
+.input-more-lg {
+	font-size: 30px ;
+}
+
+#ex1Slider .slider-selection {
+	background: #BABABA;
+}

@@ -3,15 +3,17 @@ var load = require('express-load');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 
+
 module.exports = function () {
 
-//	console.log('KopNutriApp!');
-//	console.log(process);
 	var app = express();
-	app.use(express.static('./app/public'));
-	app.set('view engine','ejs');
-	app.set('views','./app/views');	
+	app.use(express.static('./public'));
 
+	// app.set('view engine','ejs');
+	// app.set('views','./app/views');	
+	// app.engine('html', require('ejs').renderFile);
+	// app.set('view engine', 'html');
+	// app.set('views','./app/public/html');
 
 	app.use(bodyParser.urlencoded({extended: true}));
 	app.use(bodyParser.json());

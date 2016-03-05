@@ -1,20 +1,23 @@
 module.exports = function(app) {
+	
+	console.log('Kop! Antropometria Service')
 
-	app.get('/antropometrias/:atletaId', function(req, res, next) {
-		
+	app.get('/ws/antropometrias', function(req, res, next) {
+
+		console.log('Kop! Service ANTRO listagem');
 		//TODO: Diversas mudanças para associar com atletas...
 		//var atletaId = parseInt(req.params.atletaId);
 
 		var connection = app.infra.connectionFactory();
 		var antropometriasDAO = new app.infra.AntropometriasDAO(connection);
 
-		antropometriasDAO.lista(function(err, results){
+		antropometriasDAO.lista(function(err, results) {
 			if(err) {
 				console.log(err);
 				return next(err);
 			}
 			res.format({
-				json:function(){
+				json:function() {
 					res.json(results);
 				}
 			});
@@ -22,15 +25,17 @@ module.exports = function(app) {
 		connection.end();
 	});
 
-	app.get('/produtos/form', function(req, res){
-		res.render('produtos/form',{errosValidacao:{},produto:{}});
-	});
-
+	// app.get('/produtos/form', function(req, res){
+	// 	res.render('produtos/form',{errosValidacao:{},produto:{}});
+	// });
 	
-	app.post('/antropometrias', function(req,res) {
+	app.post('/ws/antropometrias', function(req,res) {
+
+		console.log('Kop! Service ANTRO salvar...');
 
 		// var produto = req.body;
 		var antropometria = req.body;
+		console.log(antropometria);
 
 		req.assert('peso','Peso é obrigatório').notEmpty();
 		// req.assert('peso','Tipo do peso ').isFloat();

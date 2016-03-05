@@ -13,7 +13,7 @@ describe('#AntropometriaController',function(){
 	// });
 
 	it('#listagem json',function(done) {
-		request.get('/antropometrias/1')
+		request.get('/ws/antropometrias/1')
 		.set('Accept','application/json')
 		.expect('Content-Type',/json/)
 		.expect(200,done);
@@ -26,7 +26,7 @@ describe('#AntropometriaController',function(){
 	// });
 
 	it('#registra nova antropometria com dados validos',function(done){
-		request.post('/antropometrias')
+		request.post('/ws/antropometrias')
 		.send({idade:30,peso:91.0})
 		.expect(200,done);
 	});

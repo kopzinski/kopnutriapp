@@ -6,6 +6,5 @@ app.set('io',io);
 
 var porta = process.env.PORT || 3000;
 var server  = http.listen(porta, function(){
-	
-	console.log(new Date() + "KopNutri App is running...");
+	console.log(new Date() + 'Back Node -> Servidor estutando na porta: ' + this.address().port);
 });
