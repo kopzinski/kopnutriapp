@@ -25,7 +25,7 @@ describe('#AntropometriaController',function(){
 	// 	.expect(400,done);
 	// });
 
-	it('#registra nova antropometria com dados validos',function(done){
+	it('#registra nova antropometria com dados validos',function(done) {
 		request.post('/ws/antropometrias')
 		.send({idade:30,peso:91.0})
 		.expect(200,done);
