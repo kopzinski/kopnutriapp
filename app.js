@@ -6,5 +6,6 @@ app.set('io',io);
 
 var porta = process.env.PORT || 3000;
 var server  = http.listen(porta, function(){
+	http.
 	console.log(new Date() + 'Back Node -> Servidor estutando na porta: ' + this.address().port);
 });
